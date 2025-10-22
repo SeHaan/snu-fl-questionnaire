@@ -342,7 +342,7 @@
       & \ColoredFeat{\l_q_sp}{[SP]}
       & \ColoredFeat{\l_q_dp}{[DP]}
       & \entrykey{설명}
-      & \SetCell{l}{\l_q_qstn} \\
+      & \SetCell{l}{\l_q_desc} \\
     \end{tblr} \\
 
     \vspace{-0.15\baselineskip}
