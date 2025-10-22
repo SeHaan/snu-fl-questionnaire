@@ -274,6 +274,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Lexicon entries %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{fmtcount}
+\newcounter{lexcount}[section]
+
+\renewcommand{\thelexcount}{
+  \Alph{section}
+  \padzeroes[2]{\decimal{lexcount}}
+}
+
 \clist_new:N \l_q_feat_clist
 
 \bool_new:N \l_q_ms
@@ -309,7 +317,7 @@
   \selectfont\sffamily\bfseries
 }
 
-\NewDocumentCommand {\ColoredFeat} { m m }
+\NewDocumentCommand { \ColoredFeat } { m m }
   {
     \bool_if:NTF #1
       {
@@ -320,8 +328,10 @@
       }
   }
   
-\NewDocumentCommand {\Entry} { m }
+\NewDocumentCommand { \Entry } { m }
   {
+    \stepcounter{lexcount}
+
     \group_begin: % keep the assignment to the keys local
     \keys_set:nn { entry } { #1 }
 
@@ -334,7 +344,7 @@
       hlines,
       vlines
     }
-    \entrykey{A01}
+    \entrykey{\thelexcount}
       & \SetCell[c=3]{c}{\l_q_word} & 1-3 & 1-4 
       & \entrykey{예상형태} & \l_q_pred \\
     \entrykey{유의점}
