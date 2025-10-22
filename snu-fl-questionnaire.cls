@@ -23,7 +23,9 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{memoir}}
 \ProcessOptions*
 \LoadClass[b5paper,10pt,left,openany]{memoir}
+
 \DoubleSpacing
+\setlength{\parindent}{10pt}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -129,7 +131,6 @@
 % Front title
 \renewcommand{\maketitle}{
   \thispagestyle{empty}
-  \DoubleSpacing
   \begin{center}
     \vspace*{1cm}
     \rule{300pt}{3pt}
