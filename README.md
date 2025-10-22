@@ -15,11 +15,11 @@ XeLaTeX을 두 번 실행하면 참조가 처리됩니다.[^1]
 [^1]: [Overleaf](https://www.overleaf.com/)를 사용하는 경우 이 과정을 자동으로 처리하는 것 같습니다. 이외에도 [Tectonic](https://tectonic-typesetting.github.io/), [Latexmk](https://mg.readthedocs.io/latexmk.html) 등을 사용하여 자동화할 수 있습니다.
 
 ```sh
-xelatex sample
-xelatex sample
+xelatex example
+xelatex example
 ```
 
-[sample.tex](example/sample.tex) 파일을 참고하세요.
+[example.tex](example/example.tex) 파일을 참고하세요.
 
 ## 저자
 
