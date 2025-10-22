@@ -109,7 +109,7 @@
   firstpageonly,
   angle=0,
   scale=0.75,
-  text={\includegraphics{snu-ui-trans.png}}
+  text={\includegraphics{img/snu-ui-trans.png}}
 ]{draftwatermark}
 
 
