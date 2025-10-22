@@ -161,7 +161,7 @@
       \begin{tabular}{c}
         \strut \fontsize{15pt}{17pt}\selectfont\bfseries\@title \strut \\[2.5ex]
         \strut \fontsize{10pt}{11pt}\selectfont\mdseries\@printdate{}~인쇄 \strut \\
-        \strut \@printdate{}~발행 \strut \\[2.5ex]
+        \strut \fontsize{10pt}{11pt}\selectfont\mdseries\@printdate{}~발행 \strut \\[2.5ex]
         \strut 엮은이:~\@author \strut \\
         \strut 전화:~\@tel \strut
       \end{tabular}
