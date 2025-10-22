@@ -22,7 +22,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{memoir}}
 \ProcessOptions*
-\LoadClass[a4paper,10pt,left,openany]{memoir}
+\LoadClass[b5paper,10pt,left,openany]{memoir}
 \DoubleSpacing
 
 
@@ -95,8 +95,8 @@
 \settocdepth{chapter}
 
 \copypagestyle{customruled}{plain}
-\makeevenfoot{customruled}{\thepage{}~|~서울대학교~언어학과}{}{}
-\makeoddfoot{customruled}{}{}{한국언어조사질문지~|~\thepage}
+\makeevenfoot{customruled}{\footnotesize{\thepage{}~|~서울대학교~언어학과}}{}{}
+\makeoddfoot{customruled}{}{}{\footnotesize{한국~언어조사~질문지~|~\thepage}}
 \pagestyle{customruled}
 
 \aliaspagestyle{chapter}{customruled}
