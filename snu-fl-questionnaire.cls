@@ -171,6 +171,121 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Consultants' table %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DefTblrTemplate{my-notes}{note}{
+  \begin{TblrNote}
+    \TblrNote{1}{무엇(어떤 장비)으로 어떻게 녹음했는지}
+    \TblrNote{2}{녹음 파일의 이름 및 번호 기재}
+    \TblrNote{3}{출생지랑 현재 거주지랑 같은/다른데, 혹시 다른 지역에서 오래 생활하신 적은 없으신가요/있으신가요? (타지 생활 경험 반드시 확인)}
+    \TblrNote{4}{군대는 다녀오셨나요? 언제 가셨나요? 어느 지역에서 하셨나요? (언어 배경 파악 목적)}
+    \TblrNote{5}{가족분들 소개해주실 수 있나요? (+가족분들 각각 어느 지역 화자인지 여쭤보기)}
+  \end{TblrNote}
+}
+
+\NewDocumentCommand{\ConsTop}{}{
+  \begin{tblr}{
+    rows = {abovesep=0pt,belowsep=1pt},
+    width = \textwidth,
+    colspec = {|X[l,m]|X[l,m]|},
+    hlines,
+    vlines
+  }
+  \SetCell[c=2]{l}{조사자~이름} \\
+  조사자~소속 & 음성~전사자(진행자) \\
+  녹음~담당자 & 체크리스트~담당자 \\
+  \SetCell[c=2]{l}{조사지~주소} \\
+  녹음~방식 \textsuperscript{1)} & 녹음~파일 \textsuperscript{2)} \\
+  \end{tblr}
+}
+
+\NewDocumentCommand{\ConsMid}{}{
+  \begin{tblr}{
+    rows = {abovesep=0pt,belowsep=1pt},
+    width = \textwidth,
+    colspec = {|X[l,m]|X[l,m]|},
+    vlines
+  }
+  
+  \hline
+    \SetCell[c=2]{l}{자료제공인~성명} & 1-2 \\
+  \hline
+    \SetCell[c=2]{l}{
+      자료제공인~거주지
+      \hspace*{5.8cm}
+      (~농촌~/~어촌~/~산간촌~/~광산촌~/~도시~)
+    } & 2-2 \\
+    \SetCell[c=2]{l}{} & 3-2 \\
+  \hline
+    \SetCell[c=2]{l}{자료제공인~출생지} \textsuperscript{3)} & 4-2 \\
+  \hline
+    자료제공인~연령 & 자료제공인~성별 \\
+  \hline
+    자료제공인~직업 & 자료제공인~학력 \\
+  \hline
+    자료제공인~경력 & 자료제공인~병역 \textsuperscript{4)} \\
+    & \\
+  \hline
+    \SetCell[c=2]{l}{자료제공인~가족사항~및~선대~거주지} \textsuperscript{5)} & 10-2 \\
+    \SetCell[c=2]{l}{} & 11-2 \\
+  \hline
+    \SetCell[c=2]{l}{자료제공인~타지~거주~경험} & 12-2 \\
+    \SetCell[c=2]{l}{} & 13-2 \\
+  \hline
+    \SetCell[c=2]{l}{
+      자료제공인~가정~문화시설~유무:~TV(\qquad),~라디오(\qquad),~인터넷(\qquad),~기타(\qquad)
+    } & 14-2 \\
+  \hline
+  \end{tblr}
+}
+
+\NewDocumentCommand{\ConsBot}{}{
+  \begin{tblr}{
+    rows = {abovesep=0pt,belowsep=1pt},
+    width = \textwidth,
+    colspec = {|X[l,m]|X[l,m]|},
+    vlines
+  }
+  
+  \hline
+    협조자~성명 & 협조자~연령 \\
+  \hline
+    협조자~직업 & 협조자~학력 \\
+  \hline
+    \SetCell[c=2]{l}{
+      조사지역~개관(역사, 교육권, 동혼권, 경제권, 교통권 등)
+    } & \\
+    \SetCell[c=2]{l}{} & \\
+  \hline
+    \SetCell[c=2]{l}{비고} & \\
+    \SetCell[c=2]{l}{} & \\
+  \hline
+  \end{tblr}
+}
+
+\NewDocumentCommand{\Consultant}{}{
+  \small
+  \ConsTop \\
+  \ConsMid \\
+  \ConsBot \\ \\
+
+  {
+    \footnotesize
+
+    \vspace{-0.35\baselineskip}
+    1)~어떤~장비로~어떻게~녹음했는지~기재 \hspace{2.6cm}
+    2)~녹음~파일의~이름~및~번호~기재 \\
+    \vspace{-0.35\baselineskip}
+    3)~출생지와~현재~거주지가~같은데/다른데,~혹시~다른~지역에서~생활하신~적은~없으신가요/있으신가요? \\
+    \vspace{-0.35\baselineskip}
+    4)~군대는~다녀오셨나요?~언제~가셨나요?~어느~지역에서~하셨나요?~(언어~배경~파악~목적) \\
+    \vspace{-0.35\baselineskip}
+    5)~가족분들~소개해주실~수~있나요?~(+~가족분들~각각~어느~지역~화자인지~여쭤보기)
+  }
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Korean-English, e.g., \alt{형태의미론}{Morpho-Semantics}
