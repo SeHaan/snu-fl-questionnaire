@@ -272,6 +272,101 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Lexicon entries %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clist_new:N \l_q_feat_clist
+
+\bool_new:N \l_q_ms
+\bool_new:N \l_q_sp
+\bool_new:N \l_q_dp
+
+\keys_define:nn { entry }
+  {
+    word .tl_set:N = \l_q_word,
+    pred .tl_set:N = \l_q_pred,
+    feat .code:n =
+      {
+        \clist_set:Nn \l_q_feat_clist { #1 }
+
+        \clist_if_in:NnTF \l_q_feat_clist { ms }
+          { \bool_set_true:N \l_q_ms }
+          { \bool_set_false:N \l_q_ms }
+
+        \clist_if_in:NnTF \l_q_feat_clist { sp }
+          { \bool_set_true:N \l_q_sp }
+          { \bool_set_false:N \l_q_sp }
+          
+        \clist_if_in:NnTF \l_q_feat_clist { dp }
+          { \bool_set_true:N \l_q_dp }
+          { \bool_set_false:N \l_q_dp }
+      },
+    desc .tl_set:N = \l_q_desc,
+    qstn .tl_set:N = \l_q_qstn,
+    advq .tl_set:N = \l_q_advq,
+  }
+
+\newcommand{\entrykey}{
+  \selectfont\sffamily\bfseries
+}
+
+\NewDocumentCommand {\ColoredFeat} { m m }
+  {
+    \bool_if:NTF #1
+      {
+        \entrykey\color{black} #2
+      }
+      {
+        \entrykey\color{lightgray} #2
+      }
+  }
+  
+\NewDocumentCommand {\Entry} { m }
+  {
+    \group_begin: % keep the assignment to the keys local
+    \keys_set:nn { entry } { #1 }
+
+    \OnehalfSpacing
+
+    \par\noindent
+    \begin{tblr}{
+      width = \linewidth,
+      colspec = {|Q[c,m,1.2cm]|X[c,m]|X[c,m]|X[c,m]|Q[c,m,1.2cm]|X[5,c,m]|},
+      hlines,
+      vlines
+    }
+    \entrykey{A01}
+      & \SetCell[c=3]{c}{\l_q_word} & 1-3 & 1-4 
+      & \entrykey{예상형태} & \l_q_pred \\
+    \entrykey{유의점}
+      & \ColoredFeat{\l_q_ms}{[MS]}
+      & \ColoredFeat{\l_q_sp}{[SP]}
+      & \ColoredFeat{\l_q_dp}{[DP]}
+      & \entrykey{설명}
+      & \SetCell{l}{\l_q_qstn} \\
+    \end{tblr} \\
+
+    \vspace{-0.15\baselineskip}
+
+    \par\noindent
+    \begin{tblr}{
+      width = \linewidth,
+      colspec = {|Q[c,m,1.2cm]|X[l,m]|},
+      vlines,
+      row{3} = {2cm}
+    }
+      \entrykey{유도질문} & \l_q_qstn \\
+    \hline
+      \entrykey{심화질문} & \l_q_advq \\
+    \hline
+      \entrykey{방언형} & \\
+    \hline
+    \end{tblr}
+
+    \group_end:
+  }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Korean-English, e.g., \alt{형태의미론}{Morpho-Semantics}
